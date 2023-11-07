@@ -48,7 +48,7 @@ final List<Map<String, dynamic>> itemList = [
     return GestureDetector(
       onTap: (){
         setState(() {
-          _selectedIndex = index;
+          _selectedIndex = index; // jenver
           Navigator.push(
             context,
             MaterialPageRoute(
