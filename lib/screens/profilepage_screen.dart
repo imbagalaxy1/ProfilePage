@@ -19,17 +19,6 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
     Icons.discount,
   ];
 
-  
-final List<Map<String, dynamic>> itemList = [
-  {"title": "Account Information", "icon": Icons.person_outline_rounded},
-  {"title": "Password & Security", "icon": Icons.security},
-  {"title": "Health Records", "icon": Icons.local_hospital_outlined},
-  {"title": "Travel History", "icon": Icons.travel_explore},
-  {"title": "Language", "icon": Icons.language},
-  {"title": "Help Center", "icon": Icons.help_outline_outlined},
-  // Add more items as needed
-  ];
-
   String _getLabel(int index) {
     List<String> labels = [
       "Badges",   // Corresponding to FontAwesomeIcons.idBadge
@@ -43,6 +32,18 @@ final List<Map<String, dynamic>> itemList = [
 
     return "Default Label";
   }
+  
+  final List<Map<String, dynamic>> itemList = [
+    {"title": "Account Information", "icon": Icons.person_outline_rounded},
+    {"title": "Password & Security", "icon": Icons.security},
+    {"title": "Health Records", "icon": Icons.local_hospital_outlined},
+    {"title": "Travel History", "icon": Icons.travel_explore},
+    {"title": "Language", "icon": Icons.language},
+    {"title": "Help Center", "icon": Icons.help_outline_outlined},
+    // Add more items as needed
+    ];
+
+  
 
   Widget _buildIcon(int index){
     return GestureDetector(
