@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:profile_page/bottom_navigationbar.dart';
-import 'package:profile_page/screens/sample_screen.dart';
 import 'package:profile_page/widgets/zoom_image_screen.dart';
 
 class ProfilepageScreen extends StatefulWidget {
@@ -30,31 +29,12 @@ final List<Map<String, dynamic>> itemList = [
   // Add more items as needed
   ];
 
-  String _getLabel(int index) {
-    List<String> labels = [
-      "Badges",   // Corresponding to FontAwesomeIcons.idBadge
-      "Friends",  // Corresponding to FontAwesomeIcons.userGroup
-      "Coupons",  // Corresponding to Icons.discount
-    ];
-
-    if (index >= 0 && index < labels.length) {
-      return labels[index];
-    }
-
-    return "Default Label";
-  }
-
   Widget _buildIcon(int index){
     return GestureDetector(
       onTap: (){
         setState(() {
           _selectedIndex = index;
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => SampleScreen()
-              ),
-          );
+          print("Clicked");
         });
       },
       child: Column(
@@ -65,7 +45,8 @@ final List<Map<String, dynamic>> itemList = [
           decoration: BoxDecoration(
             color: _selectedIndex == index 
             ? const Color(0xFFE7EBEE) 
-            :Theme.of(context).hintColor,
+            //:Theme.of(context).hintColor,
+            : const Color(0xFF002b4a),
             borderRadius: BorderRadius.circular(30.0),
           ),
           child: Icon(
@@ -73,7 +54,8 @@ final List<Map<String, dynamic>> itemList = [
             size: 30.0,
             color: _selectedIndex == index 
             ? const Color(0xFF336488)
-            : Theme.of(context).primaryColor,
+            //: Theme.of(context).primaryColor,
+            : const Color(0xFFfafafa),
             ),
         ),
         const SizedBox(height: 5.0),
@@ -90,11 +72,26 @@ final List<Map<String, dynamic>> itemList = [
     );
   }
 
+  String _getLabel(int index) {
+    List<String> labels = [
+      "Badges",   // Corresponding to FontAwesomeIcons.idBadge
+      "Friends",  // Corresponding to FontAwesomeIcons.userGroup
+      "Coupons",  // Corresponding to Icons.discount
+    ];
+
+    if (index >= 0 && index < labels.length) {
+      return labels[index];
+    }
+
+    return "Default Label";
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        //backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: const Color(0xFF336488),
         body: Column(
           children: [
             Container(
@@ -136,72 +133,7 @@ final List<Map<String, dynamic>> itemList = [
                 ),
               ),
             ),
-            Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30.0),
-                      child: Card(
-                        elevation: 5,
-                        color: Colors.transparent,
-                        child: GestureDetector(
-                          onTap: (){
-                            Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ZoomedImageScreen(imageAsset: "assets/images/cat_image.jpeg", heroTag: "cover_image",),
-                            ));
-                          },
-                          child: Hero(
-                            tag: 'cover_image',
-                            child: Container(
-                              height: 250,
-                              width: double.infinity,
-                              color: Colors.grey,
-                              child: Center(
-                                child: Image.asset(
-                                  "assets/images/cat_image.jpeg",
-                                  height: 300.0,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 20.0,
-                    left: 25.0,
-                    child: GestureDetector(
-                      onTap: (){
-                            Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ZoomedImageScreen(imageAsset: "assets/images/cat_profile.jpeg", heroTag: "profile_image"),
-                            ));
-                          },
-                      child: SizedBox(
-                        child: Hero(
-                          tag: "profile_image",
-                          child: ClipRRect(
-                          borderRadius: BorderRadius.circular(100.0),
-                          child: Image.asset(
-                            "assets/images/cat_profile.jpeg",
-                            height: 100.0,
-                            width: 100.0,
-                            fit: BoxFit.cover,
-                          ),
-                            ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            _buildCoverImage(context),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Row(
@@ -255,7 +187,7 @@ final List<Map<String, dynamic>> itemList = [
                 ],
               ),
            ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: 
@@ -267,15 +199,13 @@ final List<Map<String, dynamic>> itemList = [
               )
               .toList(),
             ),
-            const SizedBox(height: 15),
-            
+            const SizedBox(height: 10.0),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: SizedBox(
-                  width: double.infinity,
-                  //color: Colors.white,
-                  child: SingleChildScrollView(
+                child: SingleChildScrollView(
+                  child: SizedBox(
+                    width: double.infinity,
                     child: Column(
                       children: itemList.map((item) {
                         return _buildListItem(
@@ -294,47 +224,120 @@ final List<Map<String, dynamic>> itemList = [
       ),
     );
   }
-}
-Widget _buildListItem(String title, IconData icon) {
-  return InkWell(
-    onTap: () => print("Clicked"),
-    customBorder: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20.0) ), // handle event here
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
-        color: const Color(0xFF002b4a),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: Row(
-          children: [
-            Icon(
-              icon,
-              size: 30.0,
-              color: Colors.white,
+
+  Widget _buildCoverImage(BuildContext context){
+    return Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Card(
+                    elevation: 5,
+                    color: Colors.transparent,
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ZoomedImageScreen(imageAsset: "assets/images/cat_image.jpeg", heroTag: "cover_image",),
+                        ));
+                      },
+                      child: Hero(
+                        tag: 'cover_image',
+                        child: Container(
+                          height: 250,
+                          width: double.infinity,
+                          color: Colors.grey,
+                          child: Center(
+                            child: Image.asset(
+                              "assets/images/cat_image.jpeg",
+                              height: 300.0,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              _buildProfileImage(context),
+            ],
+          );
+  }
+
+  Widget _buildProfileImage(BuildContext context){
+    return Positioned(
+            bottom: 20.0,
+            left: 25.0,
+            child: GestureDetector(
+              onTap: (){
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ZoomedImageScreen(imageAsset: "assets/images/cat_profile.jpeg", heroTag: "profile_image"),
+                    ));
+                  },
+              child: SizedBox(
+                child: Hero(
+                  tag: "profile_image",
+                  child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100.0),
+                  child: Image.asset(
+                    "assets/images/cat_profile.jpeg",
+                    height: 100.0,
+                    width: 100.0,
+                    fit: BoxFit.cover,
+                  ),
+                    ),
+                ),
+              ),
             ),
-            const SizedBox(width: 10.0), // Icon before the text
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 20.0,
+          );
+  }
+
+  Widget _buildListItem(String title, IconData icon) {
+    return InkWell(
+      onTap: () => print("Clicked"),
+      customBorder: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0) ), // handle event here
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: const Color(0xFF002b4a),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Row(
+            children: [
+              Icon(
+                icon,
+                size: 30.0,
                 color: Colors.white,
               ),
-            ), // Text
-            const Spacer(), // Spacer to push the arrow button to the right
-            const IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios,
-                size: 25.0,
-                color: Colors.grey,
-              ),
-              onPressed: null,
-            ), // Arrow button at the end
-          ],
+              const SizedBox(width: 10.0), // Icon before the text
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white,
+                ),
+              ), // Text
+              const Spacer(), // Spacer to push the arrow button to the right
+              const IconButton(
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 25.0,
+                  color: Colors.grey,
+                ),
+                onPressed: null,
+              ), // Arrow button at the end
+            ],
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
-

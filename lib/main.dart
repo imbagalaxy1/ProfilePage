@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_page/screens/edit_profile_screen.dart';
 import 'package:profile_page/screens/profilepage_screen.dart';
 
 void main() {
