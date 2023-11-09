@@ -8,12 +8,12 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  // final List<String> _editProfile = [
-  //   "Set Display Name",
-  //   "Please Select Country",
-  //   "Please Select Birthday",
-  //   "Please Select Gender",
-  // ];
+  final List<String> _editProfile = [
+    "Set Display Name",
+    "Please Select Country",
+    "Please Select Birthday",
+    "Please Select Gender",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
