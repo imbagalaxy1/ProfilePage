@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:profile_page/bottom_navigationbar.dart';
+import 'package:profile_page/components/bottom_navigationbar.dart';
+import 'package:profile_page/screens/edit_profile_screen.dart';
 import 'package:profile_page/screens/sample_screen.dart';
-import 'package:profile_page/widgets/zoom_image_screen.dart';
+import 'package:profile_page/components/zoom_image_screen.dart';
+import 'package:profile_page/screens/travel_history_screen.dart';
 
 class ProfilepageScreen extends StatefulWidget {
   const ProfilepageScreen({super.key});
@@ -19,20 +21,6 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
     Icons.discount,
   ];
 
-  String _getLabel(int index) {
-    List<String> labels = [
-      "Badges",   // Corresponding to FontAwesomeIcons.idBadge
-      "Friends",  // Corresponding to FontAwesomeIcons.userGroup
-      "Coupons",  // Corresponding to Icons.discount
-    ];
-
-    if (index >= 0 && index < labels.length) {
-      return labels[index];
-    }
-
-    return "Default Label";
-  }
-  
   final List<Map<String, dynamic>> itemList = [
     {"title": "Account Information", "icon": Icons.person_outline_rounded},
     {"title": "Password & Security", "icon": Icons.security},
@@ -90,6 +78,19 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
 
     );
   }
+  String _getLabel(int index) {
+    List<String> labels = [
+      "Badges",   // Corresponding to FontAwesomeIcons.idBadge
+      "Friends",  // Corresponding to FontAwesomeIcons.userGroup
+      "Coupons",  // Corresponding to Icons.discount
+    ];
+
+    if (index >= 0 && index < labels.length) {
+      return labels[index];
+    }
+
+    return "Default Label";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,9 +105,9 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                 color: Color(0xFF002b4a),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black26, // Shadow color
-                    offset: Offset(0, 4), // Shadow offset
-                    blurRadius: 4, // Shadow blur radius
+                    color: Colors.black26, 
+                    offset: Offset(0, 4), 
+                    blurRadius: 4, 
                   ),
                 ],
               ),
@@ -220,7 +221,7 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                     height: 40.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.0),
-                      color: Colors.white, // Background color of the button
+                      color: Colors.white, 
                     ),
                     child: TextButton(
                       onPressed: () {
@@ -232,7 +233,7 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black, // Text color of the button
+                          color: Colors.black,
                         ),
                       ),
                     ),
@@ -280,6 +281,7 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                     child: Column(
                       children: itemList.map((item) {
                         return _buildListItem(
+                          context,
                           item["title"],
                           item["icon"],
                         );
@@ -296,11 +298,13 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
     );
   }
 }
-Widget _buildListItem(String title, IconData icon) {
+Widget _buildListItem(BuildContext context,String title, IconData icon) {
   return InkWell(
-    onTap: () => print("Clicked"),
+    onTap: () {
+      _handleItemClick(context, title);
+    },
     customBorder: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20.0) ), // handle event here
+      borderRadius: BorderRadius.circular(20.0) ),
     child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
@@ -315,15 +319,15 @@ Widget _buildListItem(String title, IconData icon) {
               size: 30.0,
               color: Colors.white,
             ),
-            const SizedBox(width: 10.0), // Icon before the text
+            const SizedBox(width: 10.0),
             Text(
               title,
               style: const TextStyle(
                 fontSize: 20.0,
                 color: Colors.white,
               ),
-            ), // Text
-            const Spacer(), // Spacer to push the arrow button to the right
+            ),
+            const Spacer(),
             const IconButton(
               icon: Icon(
                 Icons.arrow_forward_ios,
@@ -331,11 +335,54 @@ Widget _buildListItem(String title, IconData icon) {
                 color: Colors.grey,
               ),
               onPressed: null,
-            ), // Arrow button at the end
+            ),
           ],
         ),
       ),
     ),
   );
+}
+
+void _handleItemClick(BuildContext context, String title) {
+  // Perform navigation based on the clicked item's title
+  switch (title) {
+    case "Account Information":
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => EditProfileScreen()),
+      );
+      break;
+    case "Password & Security":
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SampleScreen()),
+      );
+      break;
+    case "Health Records":
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SampleScreen()),
+      );
+      break;
+    case "Travel History":
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const TravelHistoryScreen()),
+      );
+      break;
+    case "Language":
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SampleScreen()),
+      );
+      break;
+    case "Help Center":
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SampleScreen()),
+      );
+      break;
+    // Add more cases for other items as needed
+  }
 }
 
