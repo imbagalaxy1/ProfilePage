@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_page/components/travelink_rounded_entry.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -8,17 +9,11 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  final List<String> _editProfile = [
-    "Set Display Name",
-    "Please Select Country",
-    "Please Select Birthday",
-    "Please Select Gender",
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar( 
-        backgroundColor: Theme.of(context).hintColor,
+        backgroundColor: const Color(0xFF002b4a),
         title: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 60.0),
           child: Text(
@@ -30,44 +25,53 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
            ),
            ),
         ),
-        leading: const Icon(Icons.arrow_back_ios),
-        ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
-          height: 180.0,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            color: Colors.white,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
-              children: [
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: "Set Display Name",
-                    labelStyle: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: "Please Select a Country",
-                    labelStyle: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.grey,
             ),
-          ),
-          ),
-      ),
+          onPressed: () => Navigator.pop(context),
+        ),
+        ),
+      body: ListView(
+          children: [
+          const SizedBox(height: 20.0),
+          buildContainer("Set Display Name"),
+          buildContainer("Please Select Country"),
+          buildContainer("Please Select Birthday"),
+          buildContainer("Please Select Gender"),
+        ],
+      ), 
     );
   }
+}
+Widget buildContainer(String labelText) {
+  return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: Row(
+            children: [
+              Text(
+                labelText,
+                style: const TextStyle(
+                  fontSize: 20.0,
+                  //fontWeight: FontWeight.bold,
+                  letterSpacing: 1.0,
+                   )
+                ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 5.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: SizedBox(
+            height: 40.0,
+            child: TravelinkRoundedTextField(),
+          ),
+        ),
+        const SizedBox(height: 5.0),
+      ],
+    );
 }

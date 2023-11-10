@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile_page/screens/edit_profile_screen.dart';
 import 'package:profile_page/screens/profilepage_screen.dart';
+import 'package:profile_page/screens/travel_history_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         hintColor: const Color(0xFF002b4a),
         scaffoldBackgroundColor: const Color(0xFF336488),
       ),
-      home: const EditProfileScreen(),
+      home: const ProfilepageScreen(),
     );
   }
 }
