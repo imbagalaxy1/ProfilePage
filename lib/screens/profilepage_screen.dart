@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:profile_page/components/bottom_navigationbar.dart';
 import 'package:profile_page/screens/edit_profile_screen.dart';
+import 'package:profile_page/screens/health_records_screen.dart';
+import 'package:profile_page/screens/language_screen.dart';
 import 'package:profile_page/screens/sample_screen.dart';
 import 'package:profile_page/components/zoom_image_screen.dart';
-import 'package:profile_page/screens/travel_history_screen.dart';
 
 class ProfilepageScreen extends StatefulWidget {
   const ProfilepageScreen({super.key});
@@ -361,19 +362,19 @@ void _handleItemClick(BuildContext context, String title) {
     case "Health Records":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SampleScreen()),
+        MaterialPageRoute(builder: (context) => const HealthRecordScreen()),
       );
       break;
     case "Travel History":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const TravelHistoryScreen()),
+        MaterialPageRoute(builder: (context) => const SampleScreen()),
       );
       break;
     case "Language":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SampleScreen()),
+        MaterialPageRoute(builder: (context) => const LanguageScreen()),
       );
       break;
     case "Help Center":
