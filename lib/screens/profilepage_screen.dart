@@ -350,7 +350,7 @@ void _handleItemClick(BuildContext context, String title) {
     case "Account Information":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const AccountInformationScreen()),
+        MaterialPageRoute(builder: (context) => AccountInformationScreen()),
       );
       break;
     case "Password & Security":
