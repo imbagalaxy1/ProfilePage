@@ -13,7 +13,7 @@ class _HealthRecordScreenState extends State<HealthRecordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ProfileAppBar(),
+      appBar: const ProfileAppBar(title: "Profile"),
       body: SafeArea(
         child: ListView(
           children: [
