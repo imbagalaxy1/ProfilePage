@@ -6,6 +6,9 @@ import 'package:profile_page/screens/health_records_screen.dart';
 import 'package:profile_page/screens/language_screen.dart';
 import 'package:profile_page/screens/sample_screen.dart';
 import 'package:profile_page/components/zoom_image_screen.dart';
+import 'package:profile_page/screens/passwordsecurity_screen.dart';
+import 'package:profile_page/screens/travelhistory_screen.dart';
+import 'package:profile_page/screens/accountinformation_screen.dart';
 
 class ProfilepageScreen extends StatefulWidget {
   const ProfilepageScreen({super.key});
@@ -356,7 +359,7 @@ void _handleItemClick(BuildContext context, String title) {
     case "Password & Security":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SampleScreen()),
+        MaterialPageRoute(builder: (context) => SecurityScreen()),
       );
       break;
     case "Health Records":
@@ -368,7 +371,7 @@ void _handleItemClick(BuildContext context, String title) {
     case "Travel History":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const SampleScreen()),
+        MaterialPageRoute(builder: (context) => TravelHistoryScreen()),
       );
       break;
     case "Language":
