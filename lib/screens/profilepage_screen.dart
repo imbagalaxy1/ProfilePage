@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:profile_page/components/bottom_navigationbar.dart';
-import 'package:profile_page/screens/edit_profile_screen.dart';
+import 'package:profile_page/screens/account_info_screen.dart';
 import 'package:profile_page/screens/health_records_screen.dart';
 import 'package:profile_page/screens/language_screen.dart';
 import 'package:profile_page/screens/sample_screen.dart';
@@ -350,7 +350,7 @@ void _handleItemClick(BuildContext context, String title) {
     case "Account Information":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => EditProfileScreen()),
+        MaterialPageRoute(builder: (context) => const AccountInformationScreen()),
       );
       break;
     case "Password & Security":

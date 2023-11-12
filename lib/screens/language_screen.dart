@@ -33,7 +33,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ProfileAppBar(),
+      appBar: const ProfileAppBar(title: "Profile"),
       body: Column(
         children: [
           const SizedBox(height: 10.0,),
