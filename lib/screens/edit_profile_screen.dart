@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/travelink_rounded_entry.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -12,27 +13,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( 
-        backgroundColor: const Color(0xFF002b4a),
-        title: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 60.0),
-          child: Text(
-            "Edit Profile",
-           style: TextStyle(
-            fontSize: 30.0,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.0,
-           ),
-           ),
-        ),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.grey,
-            ),
-          onPressed: () => Navigator.pop(context),
-        ),
-        ),
+      appBar: const ProfileAppBar(title: "Edit Profile"),
       body: ListView(
           children: [
           const SizedBox(height: 20.0),
@@ -56,8 +37,8 @@ Widget buildContainer(String labelText) {
                 labelText,
                 style: const TextStyle(
                   fontSize: 20.0,
-                  //fontWeight: FontWeight.bold,
                   letterSpacing: 1.0,
+                  color: Colors.white,
                    )
                 ),
             ],
@@ -71,7 +52,7 @@ Widget buildContainer(String labelText) {
             child: TravelinkRoundedTextField(),
           ),
         ),
-        const SizedBox(height: 5.0),
+        const SizedBox(height: 20.0),
       ],
     );
 }

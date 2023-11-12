@@ -1,39 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/zoom_image_screen.dart';
-import 'package:profile_page/components/bottom_navigationbar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/screens/edit_profile_screen.dart';
+
 class AccountInformationScreen extends StatefulWidget {
+  const AccountInformationScreen({Key? key}) : super(key: key);
+
   @override
-  _AccountInformationScreenState createState() =>
-      _AccountInformationScreenState();
+  _AccountInformationScreenState createState() => _AccountInformationScreenState();
 
 }
 
 class _AccountInformationScreenState extends State<AccountInformationScreen> {
-  bool _isCoverPhotoEditable = false;
-  bool _isProfilePictureEditable = false;
-  int _selectedIndex = 0;
-  final List<IconData> _icons = [
-    FontAwesomeIcons.idBadge,
-    FontAwesomeIcons.userGroup,
-    Icons.discount,
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Theme
-            .of(context)
-            .scaffoldBackgroundColor,
-        appBar: const ProfileAppBar(),
+    return Scaffold(
+        backgroundColor: const Color(0xFF336488),
+        appBar: const ProfileAppBar(title: "Profile"),
         body: Column(
-
           children: [
-            Text(
-              "\nAccount Information",
+            const SizedBox(height: 10.0),
+            const Text(
+              "Account Information",
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
@@ -51,19 +39,13 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                       color: Colors.transparent,
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    ZoomedImageScreen(
-                                      imageAsset: "assets/images/cat_image.jpeg",
-                                      heroTag: "cover_image",),
-                              ));
+                          Navigator.push( context, MaterialPageRoute(
+                              builder: (context) => ZoomedImageScreen( imageAsset: "assets/images/cat_image.jpeg", heroTag: "cover_image",),
+                          ));
                         },
                         child: Hero(
                           tag: 'cover_image',
                           child: Container(
-
                             height: 300,
                             width: double.infinity,
                             color: Colors.grey,
@@ -76,7 +58,6 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                               ),
                             ),
                           ),
-
                         ),
                       ),
                     ),
@@ -85,24 +66,14 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                 Positioned(
                   bottom: 40.0,
                   left: 60.0,
-
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                ZoomedImageScreen(
-                                    imageAsset: "assets/images/cat_profile.jpeg",
-                                    heroTag: "profile_image")
-                            ,
-                          ),);
-
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => ZoomedImageScreen(imageAsset: "assets/images/cat_profile.jpeg", heroTag: "profile_image"),
+                      ),);
                     },
-
                     child: SizedBox(
                       child: Hero(
-
                         tag: "profile_image",
                         child: Stack(
                             children: [
@@ -118,15 +89,20 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                               Positioned(
                                 bottom: 0.0,
                                 right: 0.0,
-                                child: IconButton(
-                                  icon: Icon(
-                                    Icons.camera_alt,
-                                    color: Colors.white,
-                                    size: 24.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
                                   ),
-                                  onPressed: () {
-                                    // Add your camera icon functionality here
-                                  },
+                                  child: IconButton(
+                                    icon: const Icon(
+                                      Icons.camera_alt,
+                                      color: Colors.white,
+                                      size: 24.0,
+                                    ),
+                                    onPressed: () {
+                                      // Add your camera icon functionality here
+                                    },
+                                  ),
                                 ),
                               ),
                             ],
@@ -135,19 +111,23 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                       ),
                     ),
                   ),
-
                 Positioned(
                   bottom: 16.0,
                   right: 16.0,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.camera_alt,
-                      color: Colors.white,
-                      size: 30.0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.camera_alt,
+                        color: Colors.white,
+                        size: 30.0,
+                      ),
+                      onPressed: () {
+                        // Add your camera icon functionality here
+                      },
                     ),
-                    onPressed: () {
-                      // Add your camera icon functionality here
-                    },
                   ),
                 ),
               ],
@@ -157,14 +137,13 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-
                   CustomListTile(
                     title: 'Name',
                     fieldValue: 'Farley Farlights', // Replace with your actual database record
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                        MaterialPageRoute(builder: (context) => const EditProfileScreen()),
                       );
                     },
                   ),
@@ -174,7 +153,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                        MaterialPageRoute(builder: (context) => const EditProfileScreen()),
                       );
                     },
                   ),
@@ -184,7 +163,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                        MaterialPageRoute(builder: (context) => const EditProfileScreen()),
                       );
                     },
                   ),
@@ -194,7 +173,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                        MaterialPageRoute(builder: (context) => const EditProfileScreen()),
                       );
                     },
                   ),
@@ -204,7 +183,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                        MaterialPageRoute(builder: (context) => const EditProfileScreen()),
                       );
                     },
                   ),
@@ -214,7 +193,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                        MaterialPageRoute(builder: (context) => const EditProfileScreen()),
                       );
                     },
                   ),
@@ -223,12 +202,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
             ),
           ],
         ),
-
-
-        bottomNavigationBar: TravelinkBottomNavigationBar(
-            currentIndex: _selectedIndex = 1),
-      ),
-    );
+      );
   }
 }
 
@@ -256,7 +230,7 @@ class CustomListTile extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
@@ -264,14 +238,14 @@ class CustomListTile extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16.0), // Add left padding
               child: Text(
                 fieldValue,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.grey, // Set the font color to gray
                 ),
               ),
             ),
           ],
         ),
-        trailing: Icon(Icons.chevron_right, color: Colors.white),
+        trailing: const Icon(Icons.chevron_right, color: Colors.white),
         onTap: onTap,
       ),
     );

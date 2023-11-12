@@ -8,7 +8,6 @@ import 'package:profile_page/screens/sample_screen.dart';
 import 'package:profile_page/components/zoom_image_screen.dart';
 import 'package:profile_page/screens/passwordsecurity_screen.dart';
 import 'package:profile_page/screens/travelhistory_screen.dart';
-import 'package:profile_page/screens/accountinformation_screen.dart';
 
 class ProfilepageScreen extends StatefulWidget {
   const ProfilepageScreen({super.key});
@@ -45,7 +44,7 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => SampleScreen()
+              builder: (context) => const SampleScreen()
               ),
           );
         });
@@ -308,10 +307,10 @@ Widget _buildListItem(BuildContext context,String title, IconData icon) {
       _handleItemClick(context, title);
     },
     customBorder: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20.0) ),
+      borderRadius: BorderRadius.circular(10.0) ),
     child: Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.circular(10.0),
         color: const Color(0xFF002b4a),
       ),
       child: Padding(
@@ -353,13 +352,13 @@ void _handleItemClick(BuildContext context, String title) {
     case "Account Information":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => AccountInformationScreen()),
+        MaterialPageRoute(builder: (context) => const AccountInformationScreen()),
       );
       break;
     case "Password & Security":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SecurityScreen()),
+        MaterialPageRoute(builder: (context) => const SecurityScreen()),
       );
       break;
     case "Health Records":
@@ -371,7 +370,7 @@ void _handleItemClick(BuildContext context, String title) {
     case "Travel History":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => TravelHistoryScreen()),
+        MaterialPageRoute(builder: (context) => const TravelHistoryScreen()),
       );
       break;
     case "Language":
@@ -383,7 +382,7 @@ void _handleItemClick(BuildContext context, String title) {
     case "Help Center":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SampleScreen()),
+        MaterialPageRoute(builder: (context) => const SampleScreen()),
       );
       break;
     // Add more cases for other items as needed

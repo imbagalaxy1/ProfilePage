@@ -1,40 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
-import 'package:profile_page/components/bottom_navigationbar.dart';
 
-void main() {
-  runApp(SecurityScreen());
-}
+class SecurityScreen extends StatefulWidget {
+  const SecurityScreen({super.key});
 
-class SecurityScreen extends StatelessWidget {
   @override
-
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Profile App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: ProfileScreen(),
-    );
-  }
+  State<SecurityScreen> createState() => _SecurityScreenState();
 }
 
-class ProfileScreen extends StatefulWidget {
-  @override
-  _ProfileScreenState createState() => _ProfileScreenState();
-
-}
-
-int _selectedIndex=0;
-class _ProfileScreenState extends State<ProfileScreen> {
-
+class _SecurityScreenState extends State<SecurityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ProfileAppBar(),
-      bottomNavigationBar: TravelinkBottomNavigationBar(currentIndex: _selectedIndex = 1),
+      appBar: const ProfileAppBar(title: "Profile"),
       backgroundColor: const Color(0xFF336488),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -63,9 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => PasswordScreen()),
                 );
-
               },
-
             ),
             CustomListTile(
               title: 'Two-Factor authentication',
@@ -78,7 +54,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onTap: () {
                 // Navigate to Login Options Screen
               },
-
             ),
             CustomListTile(
               title: 'Delete your data and account',
@@ -104,9 +79,10 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 1.0),
       decoration: BoxDecoration(
         color: const Color(0xFF002b4a),
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(10.0),
       ),
       child: ListTile(
         title: Row(
@@ -114,11 +90,11 @@ class CustomListTile extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
-            Icon(Icons.chevron_right, color: Colors.white),
+            const Icon(Icons.arrow_forward_ios, color: Colors.white54),
           ],
         ),
         onTap: onTap,

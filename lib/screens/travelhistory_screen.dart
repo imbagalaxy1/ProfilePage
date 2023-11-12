@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/bottom_navigationbar.dart';
 
+class TravelHistoryScreen extends StatefulWidget {
+  const TravelHistoryScreen({super.key});
 
-void main() {
-  runApp(MaterialApp(
-    home: TravelHistoryScreen(),
-  ));
+  @override
+  State<TravelHistoryScreen> createState() => _TravelHistoryScreenState();
 }
 
-class TravelHistoryScreen extends StatelessWidget {
+class _TravelHistoryScreenState extends State<TravelHistoryScreen> {
   @override
   int _selectedIndex =0;
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ProfileAppBar(),
+      appBar: const ProfileAppBar(title: "Profile"),
       bottomNavigationBar: TravelinkBottomNavigationBar(currentIndex: _selectedIndex = 1),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -22,7 +22,7 @@ class TravelHistoryScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Title
-            Center(
+            const Center(
               child: Text(
                 "Travel History",
                 style: TextStyle(
@@ -37,7 +37,6 @@ class TravelHistoryScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-
                 Expanded(
                   child: Align(
                     child: _buildLabel('Place'),
