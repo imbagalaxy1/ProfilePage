@@ -2,17 +2,17 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
-import 'package:profile_page/screens/ProfilePage/zoom_image_screen.dart';
-import 'package:profile_page/screens/ProfilePage/EditProfileScreen.dart';
+import 'package:profile_page/screens/ProfilePage/EditProfilePage.dart';
+import 'package:profile_page/screens/ProfilePage/ZoomedImage.dart';
 
-class AccountInformationScreen extends StatefulWidget {
-  const AccountInformationScreen({super.key});
+class AccountInformationPage extends StatefulWidget {
+  const AccountInformationPage({super.key});
 
   @override
-  State<AccountInformationScreen> createState() => _AccountInformationScreenState();
+  State<AccountInformationPage> createState() => _AccountInformationPageState();
 }
 
-class _AccountInformationScreenState extends State<AccountInformationScreen> {
+class _AccountInformationPageState extends State<AccountInformationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                             Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ZoomedImageScreen(imageAsset: "assets/images/cat_image.jpeg", heroTag: "cover_image",),
+                              builder: (context) => ZoomedImage(imageAsset: "assets/images/cat_image.jpeg", heroTag: "cover_image",),
                             ));
                           },
                           child: Hero(
@@ -74,7 +74,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                             Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ZoomedImageScreen(imageAsset: "assets/images/cat_profile.jpeg", heroTag: "profile_image"),
+                              builder: (context) => ZoomedImage(imageAsset: "assets/images/cat_profile.jpeg", heroTag: "profile_image"),
                             ));
                           },
                       child: SizedBox(
@@ -197,7 +197,7 @@ class AccountInfoItem extends StatelessWidget {
         Navigator.push(
           context, 
           MaterialPageRoute(
-            builder: (context) => const EditProfileScreen()
+            builder: (context) => const EditProfilePage()
             )
             ),
       ),

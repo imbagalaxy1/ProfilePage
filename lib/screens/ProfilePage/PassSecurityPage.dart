@@ -3,14 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 
-class SecurityScreen extends StatefulWidget {
-  const SecurityScreen({super.key});
+class SecurityPage extends StatefulWidget {
+  const SecurityPage({super.key});
 
   @override
-  State<SecurityScreen> createState() => _SecurityScreenState();
+  State<SecurityPage> createState() => _SecurityPageState();
 }
 
-class _SecurityScreenState extends State<SecurityScreen> {
+class _SecurityPageState extends State<SecurityPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

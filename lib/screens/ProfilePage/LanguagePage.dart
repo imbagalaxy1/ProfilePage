@@ -3,14 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 
-class LanguageScreen extends StatefulWidget {
-  const LanguageScreen({Key? key}) : super(key: key);
+class LanguagePage extends StatefulWidget {
+  const LanguagePage({Key? key}) : super(key: key);
 
   @override
-  State<LanguageScreen> createState() => _LanguageScreenState();
+  State<LanguagePage> createState() => _LanguagePageState();
 }
 
-class _LanguageScreenState extends State<LanguageScreen> {
+class _LanguagePageState extends State<LanguagePage> {
   final List<String> allLanguages = [
     'English',
     'Chinese',

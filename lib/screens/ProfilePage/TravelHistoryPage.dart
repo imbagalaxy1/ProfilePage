@@ -1,16 +1,16 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:profile_page/components/profile_appbar.dart';
+import 'package:profile_page/components/Profile_appbar.dart';
 
-class TravelHistoryScreen extends StatefulWidget {
-  const TravelHistoryScreen({super.key});
+class TravelHistoryPage extends StatefulWidget {
+  const TravelHistoryPage({super.key});
 
   @override
-  State<TravelHistoryScreen> createState() => _TravelHistoryScreenState();
+  State<TravelHistoryPage> createState() => _TravelHistoryPageState();
 }
 
-class _TravelHistoryScreenState extends State<TravelHistoryScreen> {
+class _TravelHistoryPageState extends State<TravelHistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
