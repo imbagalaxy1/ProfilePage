@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/zoom_image_screen.dart';
@@ -21,9 +23,12 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
           const SizedBox(height: 10.0),
           const Text('Account Information',
             style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
+              fontSize: 18.0,
               color: Colors.white,
+              fontFamily: "Nunito Sans",
+              fontVariations: [
+                FontVariation('wght', 700),
+              ]
             ),
           ),
           Stack(
@@ -46,13 +51,11 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
                           child: Hero(
                             tag: 'cover_image',
                             child: Container(
-                              height: 250,
-                              width: double.infinity,
                               color: Colors.grey,
                               child: Center(
                                 child: Image.asset(
                                   "assets/images/cat_image.jpeg",
-                                  height: 300.0,
+                                  height: 190,
                                   width: double.infinity,
                                   fit: BoxFit.cover,
                                 ),
@@ -99,7 +102,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
               child: ListView(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 children: [
                   AccountInfoItem(label: 'Profile Photo', value: 'Your profile photo'),
                   AccountInfoItem(label: 'Name', value: 'Mark Lloyd Cuizon'),
@@ -137,12 +140,12 @@ Widget _buildCamera(double bottomPosition, double leftPosition, String action){
                         _handleCameraClick(action);
                       },
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: const Color(0xFF002b4a),
+                          color:Color(0xFF002b4a),
                         ),
                         padding: const EdgeInsets.all(10.0),
-                        child: Icon(
+                        child: const Icon(
                           Icons.camera_alt,
                           color: Colors.white,
                           size: 20.0,
@@ -168,16 +171,22 @@ class AccountInfoItem extends StatelessWidget {
       child: ListTile(
         title: Text(label, 
           style: const TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
+            fontSize: 14.0,
             color: Colors.white,
+            fontFamily: "Nunito Sans",
+            fontVariations: [
+              FontVariation('wght', 800),
+            ],
           ),
         ),
         subtitle: Text(value, 
           style: const TextStyle(
-            fontSize: 15.0,
-            fontWeight: FontWeight.bold,
+            fontSize: 16.0,
             color: Colors.white54,
+            fontFamily: "Nunito Sans",
+            fontVariations: [
+              FontVariation('wght', 700),
+            ]
           ),
         ),
         trailing: const Icon(

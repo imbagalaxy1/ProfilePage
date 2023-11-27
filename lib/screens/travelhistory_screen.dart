@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/bottom_navigationbar.dart';
@@ -14,56 +16,68 @@ class _TravelHistoryScreenState extends State<TravelHistoryScreen> {
   int _selectedIndex =0;
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF336488),
       appBar: const ProfileAppBar(title: "Profile"),
       bottomNavigationBar: TravelinkBottomNavigationBar(currentIndex: _selectedIndex = 1),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Title
-            const Center(
-              child: Text(
+      body: ListView(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 10.0),
+              const Text(
                 "Travel History",
                 style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                  color: Colors.white,
+                  fontFamily: "Nunito Sans",
+                  fontVariations: [
+                    FontVariation('wght', 700),
+                  ]
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Align(
+                        child: _buildLabel('Place'),
+                        alignment: Alignment.center,
+                      ),
+                    ),
+                    Expanded(
+                      child: Align(
+                        child: _buildLabel('Hotel'),
+                        alignment: Alignment.center,
+                      ),
+                    ),
+                    Expanded(
+                      child: Align(
+                        child: _buildLabel('Date'),
+                        alignment: Alignment.center,
+                      ),
+                    ),
+              
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  height: 650.0,
+                  width: double.infinity,
                   color: Colors.white,
                 ),
               ),
-            ),
-            SizedBox(height: 16.0),
-            // Labels
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: Align(
-                    child: _buildLabel('Place'),
-                    alignment: Alignment.center,
-                  ),
-                ),
-                Expanded(
-                  child: Align(
-                    child: _buildLabel('Hotel'),
-                    alignment: Alignment.center,
-                  ),
-                ),
-                Expanded(
-                  child: Align(
-                    child: _buildLabel('Date'),
-                    alignment: Alignment.center,
-                  ),
-                ),
-
-              ],
-            ),
-            // Database Entries
-            _buildDatabaseEntry('City A', 'Hotel A', '2023-01-01'),
-            _buildDatabaseEntry('City B', 'Hotel B', '2023-02-15'), //sample
-            // Insert records from database here
-          ],
-        ),
+              // Database Entries
+              //_buildDatabaseEntry('City A', 'Hotel A', '2023-01-01'),
+              //_buildDatabaseEntry('City B', 'Hotel B', '2023-02-15'), //sample
+              // Insert records from database here
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -71,15 +85,23 @@ class _TravelHistoryScreenState extends State<TravelHistoryScreen> {
   // column labels
   Widget _buildLabel(String text) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 8.0),
+      width: 120.0,
+      height: 30.0,
+      //padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 8.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(20.0),
       ),
-      child: Text(
-        text,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
+      child: Center(
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 14.0,
+            fontFamily: "Nunito Sans",
+            fontVariations: [
+              FontVariation('wght', 900),
+            ]
+          ),
         ),
       ),
     );
@@ -88,8 +110,8 @@ class _TravelHistoryScreenState extends State<TravelHistoryScreen> {
   // data from database output
   Widget _buildDatabaseEntry(String place, String hotel, String date) {
     return Container(
-      margin: EdgeInsets.only(top: 8.0), // Adjusted margin to align with labels
-      padding: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.only(top: 8.0), // Adjusted margin to align with labels
+      padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.0),

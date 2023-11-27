@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 
@@ -26,9 +28,12 @@ class _SecurityScreenState extends State<SecurityScreen> {
                   Text(
                     "Password & Security",
                     style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
                       color: Colors.white,
+                      fontFamily: "Nunito Sans",
+                      fontVariations: [
+                        FontVariation('wght', 700),
+                      ]
                     ),
                   ),
                 ],
@@ -79,6 +84,7 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 50.0,
       margin: const EdgeInsets.symmetric(vertical: 1.0),
       decoration: BoxDecoration(
         color: const Color(0xFF002b4a),
@@ -91,7 +97,12 @@ class CustomListTile extends StatelessWidget {
             Text(
               title,
               style: const TextStyle(
+                fontSize: 18.0,
                 color: Colors.white,
+                fontFamily: "Nunito Sans",
+                fontVariations: [
+                  FontVariation('wght', 700),
+                ]
               ),
             ),
             const Icon(Icons.arrow_forward_ios, color: Colors.white54),
