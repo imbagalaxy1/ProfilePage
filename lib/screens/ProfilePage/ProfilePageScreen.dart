@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:profile_page/components/profile_appbar.dart';
+import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/bottom_navigationbar.dart';
 import 'package:profile_page/components/travelink_flyout_drawer.dart';
 import 'package:profile_page/screens/ProfilePage/HelpCenterPage.dart';

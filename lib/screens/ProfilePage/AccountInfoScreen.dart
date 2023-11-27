@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:profile_page/components/profile_appbar.dart';
-import 'package:profile_page/components/zoom_image_screen.dart';
-import 'package:profile_page/screens/edit_profile_screen.dart';
+import 'package:profile_page/components/Profile_appbar.dart';
+import 'package:profile_page/screens/ProfilePage/zoom_image_screen.dart';
+import 'package:profile_page/screens/ProfilePage/EditProfileScreen.dart';
 
 class AccountInformationScreen extends StatefulWidget {
   const AccountInformationScreen({super.key});

@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:profile_page/components/profile_appbar.dart';
+import 'package:profile_page/components/Profile_appbar.dart';
 
 class SecurityScreen extends StatefulWidget {
   const SecurityScreen({super.key});
