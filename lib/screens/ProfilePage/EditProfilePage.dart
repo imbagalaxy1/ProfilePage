@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/travelink_rounded_entry.dart';
 
-class EditProfileScreen extends StatefulWidget {
-  const EditProfileScreen({super.key});
+class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({super.key});
 
   @override
-  State<EditProfileScreen> createState() => _EditProfileScreenState();
+  State<EditProfilePage> createState() => _EditProfilePageState();
 }
 
-class _EditProfileScreenState extends State<EditProfileScreen> {
+class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

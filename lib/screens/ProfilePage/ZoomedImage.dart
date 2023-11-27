@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ZoomedImageScreen extends StatelessWidget {
+class ZoomedImage extends StatelessWidget {
   final String imageAsset;
   final String heroTag;
 
-  ZoomedImageScreen({required this.imageAsset, required this.heroTag});
+  ZoomedImage({required this.imageAsset, required this.heroTag});
 
 
   @override

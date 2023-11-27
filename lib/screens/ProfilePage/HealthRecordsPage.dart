@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/screens/ProfilePage/models/travel_history_model.dart';
 
-class HealthRecordScreen extends StatefulWidget {
-  const HealthRecordScreen({super.key});
+class HealthRecordPage extends StatefulWidget {
+  const HealthRecordPage({super.key});
 
   @override
-  State<HealthRecordScreen> createState() => _HealthRecordScreenState();
+  State<HealthRecordPage> createState() => _HealthRecordPageState();
 }
 
-class _HealthRecordScreenState extends State<HealthRecordScreen> {
+class _HealthRecordPageState extends State<HealthRecordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

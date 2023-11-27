@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/bottom_navigationbar.dart';
 import 'package:profile_page/components/travelink_flyout_drawer.dart';
+import 'package:profile_page/screens/ProfilePage/AccountInfoPage.dart';
+import 'package:profile_page/screens/ProfilePage/HealthRecordsPage.dart';
 import 'package:profile_page/screens/ProfilePage/HelpCenterPage.dart';
-import 'package:profile_page/screens/ProfilePage/AccountInfoScreen.dart';
-import 'package:profile_page/screens/ProfilePage/HealthRecordsScreen.dart';
-import 'package:profile_page/screens/ProfilePage/LanguageScreen.dart';
-import 'package:profile_page/screens/ProfilePage/PassSecurityScreen.dart';
+import 'package:profile_page/screens/ProfilePage/LanguagePage.dart';
+import 'package:profile_page/screens/ProfilePage/PassSecurityPage.dart';
 import 'package:profile_page/screens/ProfilePage/SampleScreen.dart';
-import 'package:profile_page/screens/ProfilePage/TravelHistoryScreen.dart';
-import 'package:profile_page/screens/ProfilePage/zoom_image_screen.dart';
+import 'package:profile_page/screens/ProfilePage/TravelHistoryPage.dart';
+import 'package:profile_page/screens/ProfilePage/ZoomImage.dart';
 
 class ProfilepageScreen extends StatefulWidget {
   const ProfilepageScreen({super.key});
@@ -36,7 +36,7 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const SampleScreen()
+              builder: (context) => const SamplePage()
               ),
           );
         });
@@ -114,7 +114,7 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                             Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ZoomedImageScreen(imageAsset: "assets/images/cat_image.jpeg", heroTag: "cover_image",),
+                              builder: (context) => ZoomedImage(imageAsset: "assets/images/cat_image.jpeg", heroTag: "cover_image",),
                             ));
                           },
                           child: Hero(
@@ -145,7 +145,7 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                             Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ZoomedImageScreen(imageAsset: "assets/images/cat_profile.jpeg", heroTag: "profile_image"),
+                              builder: (context) => ZoomedImage(imageAsset: "assets/images/cat_profile.jpeg", heroTag: "profile_image"),
                             ));
                           },
                       child: SizedBox(
@@ -338,31 +338,31 @@ void _handleItemClick(BuildContext context, String title) {
     case "Account Information":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const AccountInformationScreen()),
+        MaterialPageRoute(builder: (context) => const AccountInformationPage()),
       );
       break;
     case "Password & Security":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const SecurityScreen()),
+        MaterialPageRoute(builder: (context) => const SecurityPage()),
       );
       break;
     case "Health Records":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const HealthRecordScreen()),
+        MaterialPageRoute(builder: (context) => const HealthRecordPage()),
       );
       break;
     case "Travel History":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const TravelHistoryScreen()),
+        MaterialPageRoute(builder: (context) => const TravelHistoryPage()),
       );
       break;
     case "Language":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const LanguageScreen()),
+        MaterialPageRoute(builder: (context) => const LanguagePage()),
       );
       break;
     case "Help Center":

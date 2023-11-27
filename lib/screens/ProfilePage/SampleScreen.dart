@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:profile_page/components/profile_appbar.dart';
+import 'package:profile_page/components/Profile_appbar.dart';
 
-class SampleScreen extends StatefulWidget{
-  const SampleScreen({super.key});
+class SamplePage extends StatefulWidget{
+  const SamplePage({super.key});
 
   @override
-  _SampleScreenState createState() => _SampleScreenState();
+  State<SamplePage> createState() => _SamplePageState();
 }
 
-class _SampleScreenState extends State<SampleScreen> {
+class _SamplePageState extends State<SamplePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
