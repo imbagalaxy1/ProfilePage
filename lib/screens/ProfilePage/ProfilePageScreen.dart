@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/bottom_navigationbar.dart';
 import 'package:profile_page/components/travelink_flyout_drawer.dart';
-import 'package:profile_page/screens/HelpCenterPage.dart';
-import 'package:profile_page/screens/account_info_screen.dart';
-import 'package:profile_page/screens/health_records_screen.dart';
-import 'package:profile_page/screens/language_screen.dart';
-import 'package:profile_page/screens/sample_screen.dart';
-import 'package:profile_page/components/zoom_image_screen.dart';
-import 'package:profile_page/screens/passwordsecurity_screen.dart';
-import 'package:profile_page/screens/travelhistory_screen.dart';
+import 'package:profile_page/screens/ProfilePage/HelpCenterPage.dart';
+import 'package:profile_page/screens/ProfilePage/AccountInfoScreen.dart';
+import 'package:profile_page/screens/ProfilePage/HealthRecordsScreen.dart';
+import 'package:profile_page/screens/ProfilePage/LanguageScreen.dart';
+import 'package:profile_page/screens/ProfilePage/PassSecurityScreen.dart';
+import 'package:profile_page/screens/ProfilePage/SampleScreen.dart';
+import 'package:profile_page/screens/ProfilePage/TravelHistoryScreen.dart';
+import 'package:profile_page/screens/ProfilePage/zoom_image_screen.dart';
 
 class ProfilepageScreen extends StatefulWidget {
   const ProfilepageScreen({super.key});
@@ -97,7 +97,7 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: const Color(0xFF336488),
-        appBar: const ProfileAppBar(title: "Profile"),
+        appBar: const profileAppBar(title: "Profile"),
         body: Column(
           children: [
             Stack(

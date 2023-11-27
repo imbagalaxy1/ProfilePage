@@ -34,7 +34,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF336488),
-      appBar: const ProfileAppBar(title: "Profile"),
+      appBar: const profileAppBar(title: "Profile"),
       body: Column(
         children: [
           const SizedBox(height: 10.0,),

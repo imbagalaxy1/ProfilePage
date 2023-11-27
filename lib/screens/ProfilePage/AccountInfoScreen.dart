@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
-import 'package:profile_page/components/zoom_image_screen.dart';
-import 'package:profile_page/screens/edit_profile_screen.dart';
+import 'package:profile_page/screens/ProfilePage/zoom_image_screen.dart';
+import 'package:profile_page/screens/ProfilePage/EditProfileScreen.dart';
 
 class AccountInformationScreen extends StatefulWidget {
   const AccountInformationScreen({super.key});
@@ -17,7 +17,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF336488),
-      appBar: const ProfileAppBar(title: "Profile"),
+      appBar: const profileAppBar(title: "Profile"),
       body: Column(
         children: [
           const SizedBox(height: 10.0),

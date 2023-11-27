@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/travelink_rounded_entry.dart';
-import 'package:profile_page/models/articles_model.dart';
-import 'package:profile_page/models/faqs_model.dart';
+import 'package:profile_page/screens/ProfilePage/models/articles_model.dart';
+import 'package:profile_page/screens/ProfilePage/models/faqs_model.dart';
 
 class HelpCenterPage extends StatefulWidget {
   const HelpCenterPage({super.key});
@@ -17,7 +17,7 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ProfileAppBar(title: "Profile"),
+      appBar: const profileAppBar(title: "Profile"),
       body: SafeArea(
         child: ListView(
           children: [

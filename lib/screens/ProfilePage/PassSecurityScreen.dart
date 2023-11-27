@@ -14,7 +14,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ProfileAppBar(title: "Profile"),
+      appBar: const profileAppBar(title: "Profile"),
       backgroundColor: const Color(0xFF336488),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
