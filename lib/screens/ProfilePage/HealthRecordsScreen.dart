@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:profile_page/components/Profile_appbar.dart';
+import 'package:profile_page/components/profile_appbar.dart';
 import 'package:profile_page/models/travel_history_model.dart';
 
 class HealthRecordScreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class _HealthRecordScreenState extends State<HealthRecordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF336488),
-      appBar: const ProfileAppBar(title: "Profile"),
+      appBar: const profileAppBar(title: "Profile"),
       body: SafeArea(
         child: ListView(
           children: [

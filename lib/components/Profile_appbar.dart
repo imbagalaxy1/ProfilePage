@@ -3,10 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/NotificationPage.dart';
 
-class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
+class profileAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   
-  const ProfileAppBar({Key? key, required this.title}) : super(key: key);
+  const profileAppBar({Key? key, required this.title}) : super(key: key);
   
   
   @override

@@ -1,8 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:profile_page/components/Profile_appbar.dart';
-import 'package:profile_page/components/bottom_navigationbar.dart';
+import 'package:profile_page/components/profile_appbar.dart';
 
 class TravelHistoryScreen extends StatefulWidget {
   const TravelHistoryScreen({super.key});
@@ -13,12 +12,10 @@ class TravelHistoryScreen extends StatefulWidget {
 
 class _TravelHistoryScreenState extends State<TravelHistoryScreen> {
   @override
-  int _selectedIndex =0;
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF336488),
-      appBar: const ProfileAppBar(title: "Profile"),
-      bottomNavigationBar: TravelinkBottomNavigationBar(currentIndex: _selectedIndex = 1),
+      appBar: const profileAppBar(title: "Profile"),
       body: ListView(
         children: [
           Column(
@@ -66,7 +63,7 @@ class _TravelHistoryScreenState extends State<TravelHistoryScreen> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Container(
-                  height: 650.0,
+                  height: 700.0,
                   width: double.infinity,
                   color: Colors.white,
                 ),
