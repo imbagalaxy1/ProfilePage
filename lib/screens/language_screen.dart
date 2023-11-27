@@ -33,6 +33,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF336488),
       appBar: const ProfileAppBar(title: "Profile"),
       body: Column(
         children: [
@@ -40,9 +41,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
           const Text(
             "Language",
             style: TextStyle(
-              fontSize: 25.0,
-              fontWeight: FontWeight.bold,
+              fontSize: 18.0,
               color: Colors.white,
+              fontFamily: "Nunito Sans",
+                fontVariations: [
+                  FontVariation('wght', 700)
+                ]
             ),
           ),
           const SizedBox(height: 40.0),
@@ -77,10 +81,13 @@ class _LanguageScreenState extends State<LanguageScreen> {
             Text(
               language,
               style: const TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
+                fontSize: 16.0,
                 color: Color(0xFF6597BC),
                 letterSpacing: 1.0,
+                fontFamily: "Poppins",
+                fontVariations: [
+                  FontVariation('wght', 700)
+                ]
               ),
             ),
             const SizedBox(height: 10.0,),

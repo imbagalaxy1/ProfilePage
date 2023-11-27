@@ -14,6 +14,7 @@ class _AccountInformationScreenState extends State<AccountInformationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF336488),
       appBar: const ProfileAppBar(title: "Profile"),
       body: Column(
         children: [

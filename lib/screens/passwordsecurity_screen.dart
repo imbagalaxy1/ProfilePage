@@ -53,7 +53,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
               title: 'Login Options',
               onTap: () {
                 // Navigate to Login Options Screen
-              },
+              },  
             ),
             CustomListTile(
               title: 'Delete your data and account',

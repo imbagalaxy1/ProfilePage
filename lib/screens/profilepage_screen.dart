@@ -1,6 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/bottom_navigationbar.dart';
+import 'package:profile_page/components/travelink_flyout_drawer.dart';
+import 'package:profile_page/screens/HelpCenterPage.dart';
 import 'package:profile_page/screens/account_info_screen.dart';
 import 'package:profile_page/screens/health_records_screen.dart';
 import 'package:profile_page/screens/language_screen.dart';
@@ -19,22 +23,10 @@ class ProfilepageScreen extends StatefulWidget {
 class _ProfilepageScreenState extends State<ProfilepageScreen> {
   int _selectedIndex = 0;
   final List<IconData> _icons = [
-    FontAwesomeIcons.idBadge,
-    FontAwesomeIcons.userGroup,
+    Icons.badge,
+    Icons.group,
     Icons.discount,
   ];
-
-  final List<Map<String, dynamic>> itemList = [
-    {"title": "Account Information", "icon": Icons.person_outline_rounded},
-    {"title": "Password & Security", "icon": Icons.security},
-    {"title": "Health Records", "icon": Icons.local_hospital_outlined},
-    {"title": "Travel History", "icon": Icons.travel_explore},
-    {"title": "Language", "icon": Icons.language},
-    {"title": "Help Center", "icon": Icons.help_outline_outlined},
-    // Add more items as needed
-    ];
-
-  
 
   Widget _buildIcon(int index){
     return GestureDetector(
@@ -52,28 +44,33 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
       child: Column(
         children: [
            Container(
-          height: 60.0,
-          width: 60.0,
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100.0),
             color: _selectedIndex == index 
             ? const Color(0xFFE7EBEE) 
-            :Theme.of(context).hintColor,
-            borderRadius: BorderRadius.circular(30.0),
+            : const Color(0xFF002b4a),
           ),
-          child: Icon(
-            _icons[index],
-            size: 30.0,
-            color: _selectedIndex == index 
-            ? const Color(0xFF336488)
-            : Theme.of(context).primaryColor,
-            ),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Icon(
+              _icons[index],
+              size: 60.0,
+              color: _selectedIndex == index 
+              ? const Color(0xFF336488)
+              : const Color(0xFFfafafa),
+              ),
+          ),
         ),
         const SizedBox(height: 5.0),
         Text(
             _getLabel(index),
             style: const TextStyle(
-              fontSize: 20.0,
+              fontSize: 18.0,
               color: Colors.white,
+              fontFamily: "Nunito Sans",
+                fontVariations: [
+                  FontVariation('wght', 700)
+                ]
             ),
          )
         ],
@@ -83,8 +80,8 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
   }
   String _getLabel(int index) {
     List<String> labels = [
-      "Badges",   // Corresponding to FontAwesomeIcons.idBadge
-      "Friends",  // Corresponding to FontAwesomeIcons.userGroup
+      "Badges",   // Corresponding to Icons.badge
+      "Friends",  // Corresponding to Icons.group
       "Coupons",  // Corresponding to Icons.discount
     ];
 
@@ -99,48 +96,10 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: const Color(0xFF336488),
+        appBar: const ProfileAppBar(title: "Profile"),
         body: Column(
           children: [
-            Container(
-              height: 60,
-              decoration: const BoxDecoration(
-                color: Color(0xFF002b4a),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26, 
-                    offset: Offset(0, 4), 
-                    blurRadius: 4, 
-                  ),
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.menu, size: 40.0),
-                      color: Colors.white,
-                      onPressed: () {
-                        // Add your menu button action here
-                      },
-                    ),
-                    const Text(
-                      'Profile',
-                      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.notifications, size: 35.0),
-                      color: Colors.white,
-                      onPressed: () {
-                        // Add your notification button action here
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
             Stack(
                 children: [
                   Padding(
@@ -161,7 +120,7 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                           child: Hero(
                             tag: 'cover_image',
                             child: Container(
-                              height: 250,
+                              height: 190,
                               width: double.infinity,
                               color: Colors.grey,
                               child: Center(
@@ -216,8 +175,12 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                     "Farley Farlights",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 26.0,
+                      letterSpacing: 1.0,
+                      fontFamily: "Nunito Sans",
+                      fontVariations: [
+                        FontVariation('wght', 700)
+                      ]
                     ),
                   ),
                   Container(
@@ -234,9 +197,12 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                       child: const Text(
                         "Log out",
                         style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
                           color: Colors.black,
+                          fontFamily: "Nunito Sans",
+                          fontVariations: [
+                            FontVariation('wght', 700)
+                          ]
                         ),
                       ),
                     ),
@@ -250,17 +216,20 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "@JohnD",
+                    "@farlights",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      fontFamily: "Nunito Sans",
+                      fontVariations: [
+                        FontVariation('wght', 700)
+                      ]
                     ),
                   ),
                 ],
               ),
            ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: 
@@ -273,22 +242,23 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
               .toList(),
             ),
             const SizedBox(height: 15),
-            
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: SizedBox(
                   width: double.infinity,
-                  //color: Colors.white,
                   child: SingleChildScrollView(
                     child: Column(
-                      children: itemList.map((item) {
-                        return _buildListItem(
-                          context,
-                          item["title"],
-                          item["icon"],
-                        );
-                      }).toList(),
+                      children: [
+                        ProfileInfoItem(title: "Account Information", icon: Icons.person_outline_rounded, top: const Radius.circular(20.0), bottom: Radius.zero),
+                        ProfileInfoItem(title: "Password & Security", icon: Icons.security, top: Radius.zero, bottom: const Radius.circular(20.0)),
+                        const SizedBox(height: 10.0),
+                        ProfileInfoItem(title:  "Health Records", icon: Icons.local_hospital_outlined, top: const Radius.circular(20.0), bottom: Radius.zero),
+                        ProfileInfoItem(title:  "Travel History", icon: Icons.travel_explore, top: Radius.zero, bottom: const Radius.circular(20.0)),
+                        const SizedBox(height: 10.0),
+                        ProfileInfoItem(title:  "Language", icon: Icons.language, top: const Radius.circular(20.0), bottom: Radius.zero),
+                        ProfileInfoItem(title:  "Help Center", icon: Icons.help_outline_outlined, top: Radius.zero, bottom: const Radius.circular(20.0)),
+                      ],
                     ),
                   ),
                 ),
@@ -297,55 +267,71 @@ class _ProfilepageScreenState extends State<ProfilepageScreen> {
           ],
         ),
         bottomNavigationBar: TravelinkBottomNavigationBar(currentIndex: _selectedIndex = 1),
+        drawer: TravelinkFlyoutDrawer(),
       ),
     );
   }
 }
-Widget _buildListItem(BuildContext context,String title, IconData icon) {
-  return InkWell(
-    onTap: () {
-      _handleItemClick(context, title);
-    },
-    customBorder: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10.0) ),
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: const Color(0xFF002b4a),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: Row(
-          children: [
-            Icon(
-              icon,
-              size: 30.0,
-              color: Colors.white,
-            ),
-            const SizedBox(width: 10.0),
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-              ),
-            ),
-            const Spacer(),
-            const IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios,
-                size: 25.0,
-                color: Colors.grey,
-              ),
-              onPressed: null,
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
 
+class ProfileInfoItem extends StatelessWidget{
+  final String title;
+  final IconData icon;
+  final Radius top, bottom;
+
+  ProfileInfoItem({required this.title, required this.icon, required this.top, required this.bottom});
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        _handleItemClick(context, title);
+      },
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.vertical(top: top, bottom: bottom),
+              color: const Color(0xFF002b4a),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Row(
+                children: [
+                  Icon(
+                    icon,
+                    size: 26.0,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(width: 10.0),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                      fontFamily: "Nunito Sans",
+                      fontVariations: [
+                        FontVariation('wght', 700)
+                      ]
+                    ),
+                  ),
+                  const Spacer(),
+                  const IconButton(
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 24.0,
+                      color: Colors.grey,
+                    ),
+                    onPressed: null,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 1.0),
+        ],
+      ),
+    );
+  }
+}
 void _handleItemClick(BuildContext context, String title) {
   // Perform navigation based on the clicked item's title
   switch (title) {
@@ -382,7 +368,7 @@ void _handleItemClick(BuildContext context, String title) {
     case "Help Center":
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const SampleScreen()),
+        MaterialPageRoute(builder: (context) => const HelpCenterPage()),
       );
       break;
     // Add more cases for other items as needed

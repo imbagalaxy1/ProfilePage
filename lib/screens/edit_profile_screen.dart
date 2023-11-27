@@ -13,6 +13,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF336488),
       appBar: const ProfileAppBar(title: "Edit Profile"),
       body: ListView(
           children: [
@@ -36,9 +37,10 @@ Widget buildContainer(String labelText) {
               Text(
                 labelText,
                 style: const TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 16.0,
                   letterSpacing: 1.0,
                   color: Colors.white,
+                  fontFamily: "Open Sans",
                    )
                 ),
             ],
