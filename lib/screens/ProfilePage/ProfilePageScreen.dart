@@ -11,7 +11,7 @@ import 'package:profile_page/screens/ProfilePage/LanguagePage.dart';
 import 'package:profile_page/screens/ProfilePage/PassSecurityPage.dart';
 import 'package:profile_page/screens/ProfilePage/SampleScreen.dart';
 import 'package:profile_page/screens/ProfilePage/TravelHistoryPage.dart';
-import 'package:profile_page/screens/ProfilePage/ZoomImage.dart';
+import 'package:profile_page/screens/ProfilePage/ZoomedImage.dart';
 
 class ProfilepageScreen extends StatefulWidget {
   const ProfilepageScreen({super.key});
