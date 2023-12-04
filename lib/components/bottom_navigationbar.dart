@@ -47,7 +47,7 @@ class TravelinkBottomNavigationBar extends StatelessWidget{
             Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage()));
             break;
           case 2:
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const RestaurantPage()));
+            print("Planner clicked");// Replace with correct route
             break;
           case 3:
             print("Budget clicked");// Replace with correct route
