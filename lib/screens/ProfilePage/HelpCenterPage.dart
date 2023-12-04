@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:profile_page/components/Profile_appbar.dart';
 import 'package:profile_page/components/travelink_rounded_entry.dart';
-import 'package:profile_page/screens/ProfilePage/models/articles_model.dart';
-import 'package:profile_page/screens/ProfilePage/models/faqs_model.dart';
+import 'package:profile_page/screens/ProfilePage/models/Articles_model.dart';
+import 'package:profile_page/screens/ProfilePage/models/Faqs_model.dart';
 
 class HelpCenterPage extends StatefulWidget {
   const HelpCenterPage({super.key});
@@ -151,35 +151,38 @@ Widget _searchWidget(){
   );
 }
 Widget _tutorialWidget(){
-  return Column(
-    children: [
-      const Row(
-        children: [
-          Text(
-            "Tutorials",
-            style: TextStyle(
-              fontSize: 20,
-              letterSpacing: 1.0,
-              fontFamily: "Nunito Sans", 
-              fontVariations: [
-                FontVariation('wght', 600),
-              ],
+  return GestureDetector(
+    onTap: () => debugPrint("Clicked"),
+    child: Column(
+      children: [
+        const Row(
+          children: [
+            Text(
+              "Tutorials",
+              style: TextStyle(
+                fontSize: 20,
+                letterSpacing: 1.0,
+                fontFamily: "Nunito Sans", 
+                fontVariations: [
+                  FontVariation('wght', 600),
+                ],
+              ),
+              ),
+          ],
+        ),
+        SizedBox(
+          height: 70.0,
+          width: double.infinity,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Image.asset(
+              "assets/images/Tutorial.jpg",
+              fit: BoxFit.cover,
             ),
-            ),
-        ],
-      ),
-      SizedBox(
-        height: 70.0,
-        width: double.infinity,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20.0),
-          child: Image.asset(
-            "assets/images/Tutorial.jpg",
-            fit: BoxFit.cover,
           ),
         ),
-      ),
-    ],
+      ],
+    ),
   );
 }
 Widget _faqsWidget(){

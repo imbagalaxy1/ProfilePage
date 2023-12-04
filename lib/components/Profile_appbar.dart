@@ -21,6 +21,7 @@ class profileAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         title,
         style: const TextStyle(
+          color: Colors.white,
           fontSize: 24,
           fontFamily: "Open Sans",
           fontVariations: [
@@ -30,7 +31,7 @@ class profileAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.notifications),
+          icon: const Icon(Icons.notifications, color: Colors.white,),
           onPressed: () {
             navigatesToNotificationPage(context);
           },
