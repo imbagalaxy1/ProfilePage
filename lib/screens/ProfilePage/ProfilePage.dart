@@ -13,14 +13,14 @@ import 'package:profile_page/screens/ProfilePage/SampleScreen.dart';
 import 'package:profile_page/screens/ProfilePage/TravelHistoryPage.dart';
 import 'package:profile_page/screens/ProfilePage/ZoomedImage.dart';
 
-class ProfilepageScreen extends StatefulWidget {
-  const ProfilepageScreen({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  State<ProfilepageScreen> createState() => _ProfilepageScreenState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _ProfilepageScreenState extends State<ProfilepageScreen> {
+class _ProfilePageState extends State<ProfilePage> {
   int _selectedIndex = 0;
   final List<IconData> _icons = [
     Icons.badge,

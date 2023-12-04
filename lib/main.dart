@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:profile_page/screens/ProfilePage/ProfilePageScreen.dart';
+import 'package:profile_page/screens/ProfilePage/ProfilePage.dart';
+import 'package:profile_page/screens/RestaurantPage/RestaurantPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         hintColor: const Color(0xFF002b4a),
         scaffoldBackgroundColor: const Color(0xFF336488),
       ),
-      home: const ProfilepageScreen(),
+      home: const ProfilePage(),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile_page/screens/ProfilePage/ProfilePageScreen.dart';
+import 'package:profile_page/screens/ProfilePage/ProfilePage.dart';
 
 
 
@@ -35,7 +35,7 @@ class TravelinkFlyoutDrawer extends StatelessWidget{
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ProfilepageScreen()),
+                MaterialPageRoute(builder: (context) => const ProfilePage()),
               );
             },
           ),
@@ -50,7 +50,7 @@ class TravelinkFlyoutDrawer extends StatelessWidget{
               // );
             },
           ),
-
+      
           const Divider(), // Add a divider between main items and settings
           ListTile(
             leading: const Icon(Icons.settings),
